@@ -32,19 +32,6 @@ namespace DigitArc.ProductModule.DataAccess.EntityFramework
             var connectionString = config.GetConnectionString("DefaultConnection");
             optionsBuilder.UseSqlServer(connectionString, b => b.MigrationsAssembly("DigitArc.ProductModule.DataAccess"));
             return new ProductModuleDbContext(optionsBuilder.Options);
-
-            //var builder = new ConfigurationBuilder();
-            //var configuration = builder.Build();
-
-            ////var connectionString = AppConfig.GetConnectionString();
-            //ConnectionString.Value = configuration["DefaultConnection"];
-            //var connStr = Configuration.
-            //               .GetSection("DefaultConnection")["ConnectionString"];
-
-            //var optionsBuilder = new DbContextOptionsBuilder<ProductModuleDbContext>();
-            //optionsBuilder.UseSqlServer(ConnectionString.Value);
-
-            //return new ProductModuleDbContext(optionsBuilder.Options);
         }
     }
 
