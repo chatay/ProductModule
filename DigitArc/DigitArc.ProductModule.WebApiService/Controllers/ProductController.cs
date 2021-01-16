@@ -21,6 +21,7 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
         {
             this.productModuleservice = productModuleservice;
         }
+        [HttpGet]
         public IActionResult Get()
         {
             ServiceResponse<Product> response = new ServiceResponse<Product>
@@ -31,6 +32,7 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
             response.EntitiesCount = response.Entities.Count();
             return Ok(response);
         }
+        [HttpPost]
         public IActionResult Post([FromBody] ProductModel model )
         {
             Product product = new Product()
@@ -39,7 +41,36 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
                 Price = model.Price
             };
             productModuleservice.Add(product);
-            return Ok(product1);
+
+            ServiceResponse<Product> response = new ServiceResponse<Product>
+            {
+                Entity = product,
+                IsSuccessfull = true
+            };
+            return Ok(response);
+        }
+        [HttpPut]
+        public IActionResult Put(int id, [FromBody] ProductModel model)
+        {
+            ServiceResponse<Product> response = new ServiceResponse<Product>();
+            bool isNull = model.GetType().GetProperties()
+                            .All(p => p.GetValue(model) != null);
+
+            if (isNull) return BadRequest();
+
+            var product = productModuleservice.GetById(id);
+
+            if (product == null)
+            {
+                response.IsSuccessfull = false;
+                response.Errors.Add("product not found");
+            }
+
+            product.Name = model.Name;
+            product.Price = model.Price;
+            response.IsSuccessfull = true;
+
+            return Ok(response);
         }
     }
 }

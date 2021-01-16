@@ -42,5 +42,10 @@ namespace DigitArc.Core.EntityFramework
             context.Set<Tentity>().Update(entity);
             Save();
         }
+
+        public Tentity GetById(int id)
+        {
+           return context.Set<Tentity>().Find(id);
+        }
     }
 }

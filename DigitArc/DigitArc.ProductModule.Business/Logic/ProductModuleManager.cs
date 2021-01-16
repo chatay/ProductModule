@@ -21,12 +21,17 @@ namespace DigitArc.ProductModule.Business.Logic
 
         public void Delete(Product product)
         {
-            _productRepository.Add(product);
+            _productRepository.Delete(product);
         }
 
         public List<Product> GetAll()
         {
             return _productRepository.GetAll().ToList();
+        }
+
+        public Product GetById(int Id)
+        {
+           return  _productRepository.GetById(Id);
         }
 
         public void Update(Product product)

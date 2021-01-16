@@ -8,6 +8,7 @@ namespace DigitArc.ProductModule.Business.Logic
         List<Product> GetAll();
 
         void Add(Product product);
+        Product GetById(int Id);
 
         void Update(Product product);
 

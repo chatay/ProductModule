@@ -1,4 +1,5 @@
 using DigitArc.ProductModule.Business.Logic;
+using DigitArc.ProductModule.DataAccess.DatabaseLogic;
 using DigitArc.ProductModule.DataAccess.EntityFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,12 +24,9 @@ namespace DigitArc.ProductModule.WebApiService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
-            //var dbConnectintion = services.Configure<AppSettingsModel>(Configuration.GetSection("DefaultConnection"));
-
-            //services.AddDbContext<ProductModuleDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString(aa.ToString()), b => b.MigrationsAssembly("DigitArc.ProductModule.WebApiService")));
-
+            services.AddDbContext<ProductModuleDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IProductModuleservice, ProductModuleManager>();
+            services.AddTransient<IProductRepository, ProductDal>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

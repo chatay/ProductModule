@@ -7,6 +7,7 @@ namespace DigitArc.Core
         IQueryable<T> GetAll();
 
         void Add(T entity);
+        T GetById(int id);
 
         void Update(T entity);
 
