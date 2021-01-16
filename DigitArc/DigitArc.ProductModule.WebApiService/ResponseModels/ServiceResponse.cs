@@ -10,7 +10,7 @@ namespace DigitArc.ProductModule.WebApiService.Models
         public int EntitiesCount { get; set; }
 
         //Alanların içi boş gelirse hataya düşmesin
-        public ServiceResponse(T entity, List<T> entities, int entitiesCount)
+        public ServiceResponse()
         {
             Errors = new List<string>();
             Entities = new List<T>();

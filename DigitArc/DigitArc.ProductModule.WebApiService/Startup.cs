@@ -1,6 +1,5 @@
 using DigitArc.ProductModule.Business.Logic;
 using DigitArc.ProductModule.DataAccess.EntityFramework;
-using DigitArc.ProductModule.DataAccess.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;

@@ -8,7 +8,6 @@ namespace DigitArc.ProductModule.WebApiService.Models
     public class BaseResponse
     {
         public List<string> Errors { get; set; }
-        public List<string> HasError { get; set; }
-        public List<string> IsSuccessfull { get; set; }
+        public bool IsSuccessfull { get; set; }
     }
 }
