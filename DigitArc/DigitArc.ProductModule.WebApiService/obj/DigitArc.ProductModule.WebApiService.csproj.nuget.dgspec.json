@@ -4,14 +4,14 @@
     "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.WebApiService\\DigitArc.ProductModule.WebApiService.csproj": {}
   },
   "projects": {
-    "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.WebApiService\\DigitArc.ProductModule.WebApiService.csproj": {
+    "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.Core\\DigitArc.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.WebApiService\\DigitArc.ProductModule.WebApiService.csproj",
-        "projectName": "DigitArc.ProductModule.WebApiService",
-        "projectPath": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.WebApiService\\DigitArc.ProductModule.WebApiService.csproj",
+        "projectUniqueName": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.Core\\DigitArc.Core.csproj",
+        "projectName": "DigitArc.Core",
+        "projectPath": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.Core\\DigitArc.Core.csproj",
         "packagesPath": "C:\\Users\\CAGATAY\\.nuget\\packages\\",
-        "outputPath": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.WebApiService\\obj\\",
+        "outputPath": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\CAGATAY\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,287 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.Business\\DigitArc.ProductModule.Business.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.Business\\DigitArc.ProductModule.Business.csproj",
+        "projectName": "DigitArc.ProductModule.Business",
+        "projectPath": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.Business\\DigitArc.ProductModule.Business.csproj",
+        "packagesPath": "C:\\Users\\CAGATAY\\.nuget\\packages\\",
+        "outputPath": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.Business\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\CAGATAY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.DataAccess\\DigitArc.ProductModule.DataAccess.csproj": {
+                "projectPath": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.DataAccess\\DigitArc.ProductModule.DataAccess.csproj"
+              },
+              "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.Entities\\DigitArc.ProductModule.Entities.csproj": {
+                "projectPath": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.Entities\\DigitArc.ProductModule.Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.DataAccess\\DigitArc.ProductModule.DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.DataAccess\\DigitArc.ProductModule.DataAccess.csproj",
+        "projectName": "DigitArc.ProductModule.DataAccess",
+        "projectPath": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.DataAccess\\DigitArc.ProductModule.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\CAGATAY\\.nuget\\packages\\",
+        "outputPath": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\CAGATAY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.Core\\DigitArc.Core.csproj": {
+                "projectPath": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.Core\\DigitArc.Core.csproj"
+              },
+              "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.Entities\\DigitArc.ProductModule.Entities.csproj": {
+                "projectPath": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.Entities\\DigitArc.ProductModule.Entities.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.Entities\\DigitArc.ProductModule.Entities.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.Entities\\DigitArc.ProductModule.Entities.csproj",
+        "projectName": "DigitArc.ProductModule.Entities",
+        "projectPath": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.Entities\\DigitArc.ProductModule.Entities.csproj",
+        "packagesPath": "C:\\Users\\CAGATAY\\.nuget\\packages\\",
+        "outputPath": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.Entities\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\CAGATAY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.WebApiService\\DigitArc.ProductModule.WebApiService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.WebApiService\\DigitArc.ProductModule.WebApiService.csproj",
+        "projectName": "DigitArc.ProductModule.WebApiService",
+        "projectPath": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.WebApiService\\DigitArc.ProductModule.WebApiService.csproj",
+        "packagesPath": "C:\\Users\\CAGATAY\\.nuget\\packages\\",
+        "outputPath": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.WebApiService\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\CAGATAY\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.Business\\DigitArc.ProductModule.Business.csproj": {
+                "projectPath": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.Business\\DigitArc.ProductModule.Business.csproj"
+              },
+              "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.DataAccess\\DigitArc.ProductModule.DataAccess.csproj": {
+                "projectPath": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.DataAccess\\DigitArc.ProductModule.DataAccess.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.10, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

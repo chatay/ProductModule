@@ -1,0 +1,11 @@
+C:\Work\İş\DigitArcProjectSourceCode\DigitArc\DigitArc.Core\bin\Debug\netcoreapp3.1\DigitArc.Core.deps.json
+C:\Work\İş\DigitArcProjectSourceCode\DigitArc\DigitArc.Core\bin\Debug\netcoreapp3.1\DigitArc.Core.runtimeconfig.json
+C:\Work\İş\DigitArcProjectSourceCode\DigitArc\DigitArc.Core\bin\Debug\netcoreapp3.1\DigitArc.Core.runtimeconfig.dev.json
+C:\Work\İş\DigitArcProjectSourceCode\DigitArc\DigitArc.Core\bin\Debug\netcoreapp3.1\DigitArc.Core.dll
+C:\Work\İş\DigitArcProjectSourceCode\DigitArc\DigitArc.Core\bin\Debug\netcoreapp3.1\DigitArc.Core.pdb
+C:\Work\İş\DigitArcProjectSourceCode\DigitArc\DigitArc.Core\obj\Debug\netcoreapp3.1\DigitArc.Core.AssemblyInfoInputs.cache
+C:\Work\İş\DigitArcProjectSourceCode\DigitArc\DigitArc.Core\obj\Debug\netcoreapp3.1\DigitArc.Core.AssemblyInfo.cs
+C:\Work\İş\DigitArcProjectSourceCode\DigitArc\DigitArc.Core\obj\Debug\netcoreapp3.1\DigitArc.Core.csproj.CoreCompileInputs.cache
+C:\Work\İş\DigitArcProjectSourceCode\DigitArc\DigitArc.Core\obj\Debug\netcoreapp3.1\DigitArc.Core.dll
+C:\Work\İş\DigitArcProjectSourceCode\DigitArc\DigitArc.Core\obj\Debug\netcoreapp3.1\DigitArc.Core.pdb
+C:\Work\İş\DigitArcProjectSourceCode\DigitArc\DigitArc.Core\obj\Debug\netcoreapp3.1\DigitArc.Core.genruntimeconfig.cache

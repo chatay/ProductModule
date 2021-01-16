@@ -1,14 +1,13 @@
+using DigitArc.ProductModule.Business.Logic;
+using DigitArc.ProductModule.DataAccess.EntityFramework;
+using DigitArc.ProductModule.DataAccess.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Options;
 
 namespace DigitArc.ProductModule.WebApiService
 {
@@ -25,6 +24,12 @@ namespace DigitArc.ProductModule.WebApiService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            //var dbConnectintion = services.Configure<AppSettingsModel>(Configuration.GetSection("DefaultConnection"));
+
+            //services.AddDbContext<ProductModuleDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString(aa.ToString()), b => b.MigrationsAssembly("DigitArc.ProductModule.WebApiService")));
+
+            services.AddTransient<IProductModuleservice, ProductModuleManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,8 +41,6 @@ namespace DigitArc.ProductModule.WebApiService
             }
 
             app.UseRouting();
-
-            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

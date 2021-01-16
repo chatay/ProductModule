@@ -1,0 +1,9 @@
+C:\Work\İş\DigitArcProjectSourceCode\DigitArc\DigitArc.ProductModule.Entities\bin\Debug\netcoreapp3.1\DigitArc.ProductModule.Entities.deps.json
+C:\Work\İş\DigitArcProjectSourceCode\DigitArc\DigitArc.ProductModule.Entities\bin\Debug\netcoreapp3.1\DigitArc.ProductModule.Entities.dll
+C:\Work\İş\DigitArcProjectSourceCode\DigitArc\DigitArc.ProductModule.Entities\bin\Debug\netcoreapp3.1\DigitArc.ProductModule.Entities.pdb
+C:\Work\İş\DigitArcProjectSourceCode\DigitArc\DigitArc.ProductModule.Entities\obj\Debug\netcoreapp3.1\DigitArc.ProductModule.Entities.AssemblyInfoInputs.cache
+C:\Work\İş\DigitArcProjectSourceCode\DigitArc\DigitArc.ProductModule.Entities\obj\Debug\netcoreapp3.1\DigitArc.ProductModule.Entities.AssemblyInfo.cs
+C:\Work\İş\DigitArcProjectSourceCode\DigitArc\DigitArc.ProductModule.Entities\obj\Debug\netcoreapp3.1\DigitArc.ProductModule.Entities.csproj.CoreCompileInputs.cache
+C:\Work\İş\DigitArcProjectSourceCode\DigitArc\DigitArc.ProductModule.Entities\obj\Debug\netcoreapp3.1\DigitArc.ProductModule.Entities.dll
+C:\Work\İş\DigitArcProjectSourceCode\DigitArc\DigitArc.ProductModule.Entities\obj\Debug\netcoreapp3.1\DigitArc.ProductModule.Entities.pdb
+C:\Work\İş\DigitArcProjectSourceCode\DigitArc\DigitArc.ProductModule.Entities\obj\Debug\netcoreapp3.1\DigitArc.ProductModule.Entities.csprojAssemblyReference.cache

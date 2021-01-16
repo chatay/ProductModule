@@ -1,10 +1,15 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DigitArc.ProductModule.DataAccess.EntityFramework
 {
-    class SeedDatabase
+    public class SeedDatabase
     {
+        public static void Initialize(IServiceProvider serviceProvider)
+        {
+            var context = serviceProvider.GetRequiredService<ProductModuleDbContext>();
+        }
     }
 }

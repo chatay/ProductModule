@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
-namespace DigitArc.Core.NewFolder
+namespace DigitArc.Core.EntityFramework
 {
     //farklı yapılar kullanılacağı için T yapısı eklendi
-    internal class RepositoryBase<Tentity, Tcontext> : IRepository<Tentity>
+    public class RepositoryBase<Tentity, Tcontext> : IRepository<Tentity>
         where Tentity : class
         where Tcontext : DbContext
     {
