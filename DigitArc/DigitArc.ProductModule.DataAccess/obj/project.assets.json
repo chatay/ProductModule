@@ -216,6 +216,19 @@
           "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {}
         }
       },
+      "DigitArc.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "3.1.10"
+        },
+        "compile": {
+          "bin/placeholder/DigitArc.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DigitArc.Core.dll": {}
+        }
+      },
       "DigitArc.ProductModule.Entities/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -640,6 +653,11 @@
         "version.txt"
       ]
     },
+    "DigitArc.Core/1.0.0": {
+      "type": "project",
+      "path": "../DigitArc.Core/DigitArc.Core.csproj",
+      "msbuildProject": "../DigitArc.Core/DigitArc.Core.csproj"
+    },
     "DigitArc.ProductModule.Entities/1.0.0": {
       "type": "project",
       "path": "../DigitArc.ProductModule.Entities/DigitArc.ProductModule.Entities.csproj",
@@ -648,6 +666,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "DigitArc.Core >= 1.0.0",
       "DigitArc.ProductModule.Entities >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 3.1.10"
     ]
@@ -679,6 +698,9 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
+            "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.Core\\DigitArc.Core.csproj": {
+              "projectPath": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.Core\\DigitArc.Core.csproj"
+            },
             "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.Entities\\DigitArc.ProductModule.Entities.csproj": {
               "projectPath": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.Entities\\DigitArc.ProductModule.Entities.csproj"
             }

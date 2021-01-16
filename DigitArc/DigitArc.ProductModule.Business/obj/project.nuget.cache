@@ -1,8 +1,28 @@
 {
   "version": 2,
-  "dgSpecHash": "mXWZ5T1pcJ12Bm8zgHJKv6uhN6bu9lkbz/Qg2QtTYo+eYrzIPxq/QM7VjV4bokD10gOkNm9qW5C/KmuNVoc/iw==",
+  "dgSpecHash": "mVpOZKNs4IKiW9n4c/DxHND1w1NDytSwUB25zgIQD72j4M/AbvW30kLVxXepnzMWeueBcsopHpdnWjWM54IMfw==",
   "success": true,
   "projectFilePath": "C:\\Work\\İş\\DigitArcProjectSourceCode\\DigitArc\\DigitArc.ProductModule.Business\\DigitArc.ProductModule.Business.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\CAGATAY\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
+    "C:\\Users\\CAGATAY\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
+    "C:\\Users\\CAGATAY\\.nuget\\packages\\microsoft.entityframeworkcore\\3.1.10\\microsoft.entityframeworkcore.3.1.10.nupkg.sha512",
+    "C:\\Users\\CAGATAY\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\3.1.10\\microsoft.entityframeworkcore.abstractions.3.1.10.nupkg.sha512",
+    "C:\\Users\\CAGATAY\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\3.1.10\\microsoft.entityframeworkcore.analyzers.3.1.10.nupkg.sha512",
+    "C:\\Users\\CAGATAY\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.10\\microsoft.extensions.caching.abstractions.3.1.10.nupkg.sha512",
+    "C:\\Users\\CAGATAY\\.nuget\\packages\\microsoft.extensions.caching.memory\\3.1.10\\microsoft.extensions.caching.memory.3.1.10.nupkg.sha512",
+    "C:\\Users\\CAGATAY\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.10\\microsoft.extensions.configuration.3.1.10.nupkg.sha512",
+    "C:\\Users\\CAGATAY\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\3.1.10\\microsoft.extensions.configuration.abstractions.3.1.10.nupkg.sha512",
+    "C:\\Users\\CAGATAY\\.nuget\\packages\\microsoft.extensions.configuration.binder\\3.1.10\\microsoft.extensions.configuration.binder.3.1.10.nupkg.sha512",
+    "C:\\Users\\CAGATAY\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.10\\microsoft.extensions.dependencyinjection.3.1.10.nupkg.sha512",
+    "C:\\Users\\CAGATAY\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.10\\microsoft.extensions.dependencyinjection.abstractions.3.1.10.nupkg.sha512",
+    "C:\\Users\\CAGATAY\\.nuget\\packages\\microsoft.extensions.logging\\3.1.10\\microsoft.extensions.logging.3.1.10.nupkg.sha512",
+    "C:\\Users\\CAGATAY\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.10\\microsoft.extensions.logging.abstractions.3.1.10.nupkg.sha512",
+    "C:\\Users\\CAGATAY\\.nuget\\packages\\microsoft.extensions.options\\3.1.10\\microsoft.extensions.options.3.1.10.nupkg.sha512",
+    "C:\\Users\\CAGATAY\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.10\\microsoft.extensions.primitives.3.1.10.nupkg.sha512",
+    "C:\\Users\\CAGATAY\\.nuget\\packages\\system.collections.immutable\\1.7.1\\system.collections.immutable.1.7.1.nupkg.sha512",
+    "C:\\Users\\CAGATAY\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512",
+    "C:\\Users\\CAGATAY\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"
+  ],
   "logs": []
 }
