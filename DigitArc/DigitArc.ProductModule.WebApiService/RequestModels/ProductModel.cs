@@ -11,5 +11,6 @@ namespace DigitArc.ProductModule.WebApiService.RequestModels
         public string Name { get; set; }
         public string Price { get; set; }
         public IFormFile file { get; set; }
+        public string ImagePath { get; set; }
     }
 }

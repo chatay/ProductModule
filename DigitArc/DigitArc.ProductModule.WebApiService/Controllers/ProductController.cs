@@ -48,22 +48,26 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
                 Product product = new Product()
                 {
                     Name = model.Name,
-                    Price = model.Price
+                    Price = model.Price,
+                    ImagePath = fileUploadResult
                 };
+
                 productModuleservice.Add(product);
                 productModuleservice.Save();
+
+                
                 ServiceResponse<Product> response = new ServiceResponse<Product>
                 {
                     Entity = product,
                     IsSuccessfull = true
                 };
+
                 return Ok(new { count = 1, path = fileUploadResult, response });
             }
             catch (Exception)
             {
                 return StatusCode(500);
             }
-           
         }
 
         private async Task<string> FileUpload(ProductModel model)
@@ -76,8 +80,7 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
             {
                 await model.file.CopyToAsync(fileStream);
                 fileStream.Flush();
-                return _webHostEnvironment + "\\uploads\\" + model.file.FileName;
-
+                return _webHostEnvironment.ContentRootPath + "\\uploads\\" + model.file.FileName;
             }
         }
 
