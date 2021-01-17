@@ -70,20 +70,26 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
             }
         }
 
-        [HttpPut]
-        public IActionResult Put(int id, [FromBody] ProductModel model)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Put(int id, [FromForm] ProductModel model)
         {
-            if (id == null) return BadRequest();
-
             ServiceResponse<Product> response = new ServiceResponse<Product>();
 
             var product = productModuleservice.GetById(id);
-
             if (product == null)
             {
                 response.IsSuccessfull = false;
                 response.Errors.Add("product not found");
                 return NotFound(response);
+            }
+
+            int result = DeleteImageFile(product.ImagePath, product);
+            if (result != Constants.SUCCESS) return StatusCode(500);
+
+            var fileUploadResult = "";
+            if (model.file.Length > 0)
+            {
+                fileUploadResult = await FileUpload(model);
             }
 
             product.Name = model.Name;
