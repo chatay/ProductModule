@@ -73,30 +73,41 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromForm] ProductModel model)
         {
-            ServiceResponse<Product> response = new ServiceResponse<Product>();
-
-            var product = productModuleservice.GetById(id);
-            if (product == null)
+            try
             {
-                response.IsSuccessfull = false;
-                response.Errors.Add("product not found");
-                return NotFound(response);
+                ServiceResponse<Product> response = new ServiceResponse<Product>();
+
+                var product = productModuleservice.GetById(id);
+                if (product == null)
+                {
+                    response.IsSuccessfull = false;
+                    response.Errors.Add("product not found");
+                    return NotFound(response);
+                }
+
+                int result = DeleteImageFile(product.ImagePath, product);
+                if (result != Constants.SUCCESS) return StatusCode(500);
+
+                var fileUploadResult = "";
+                if (model.file.Length > 0)
+                {
+                    fileUploadResult = await FileUpload(model);
+                }
+
+                product.Name = model.Name;
+                product.Price = model.Price;
+                product.ImagePath = fileUploadResult;
+                productModuleservice.Update(product);
+
+                response.IsSuccessfull = true;
+
+                return Ok(response);
             }
-
-            int result = DeleteImageFile(product.ImagePath, product);
-            if (result != Constants.SUCCESS) return StatusCode(500);
-
-            var fileUploadResult = "";
-            if (model.file.Length > 0)
+            catch (Exception)
             {
-                fileUploadResult = await FileUpload(model);
+                return StatusCode(500);
             }
-
-            product.Name = model.Name;
-            product.Price = model.Price;
-            response.IsSuccessfull = true;
-
-            return Ok(response);
+            
         }
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
@@ -113,7 +124,11 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
 
                 int result =  DeleteImageFile(product.ImagePath, product);
 
-                if (result == Constants.SUCCESS) productModuleservice.Delete(product);
+                if (result == Constants.SUCCESS)
+                {
+                    productModuleservice.Delete(product);
+                    response.IsSuccessfull = true;
+                }
                 else response.IsSuccessfull = false;
 
                 return Ok(response);
