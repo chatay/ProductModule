@@ -2,10 +2,12 @@
 using DigitArc.ProductModule.Entities.Models;
 using DigitArc.ProductModule.WebApiService.Models;
 using DigitArc.ProductModule.WebApiService.RequestModels;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,10 +18,11 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
     public class ProductController : ControllerBase
     {
         private readonly IProductModuleservice productModuleservice;
-
-        public ProductController(IProductModuleservice productModuleservice)
+        private readonly IWebHostEnvironment _webHostEnvironment;
+        public ProductController(IProductModuleservice productModuleservice, IWebHostEnvironment _webHostEnvironment)
         {
             this.productModuleservice = productModuleservice;
+            this._webHostEnvironment = _webHostEnvironment;
         }
         [HttpGet]
         public IActionResult Get()
@@ -33,22 +36,51 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
             return Ok(response);
         }
         [HttpPost]
-        public IActionResult Post([FromBody] ProductModel model )
+        public async Task<IActionResult> Post([FromForm] ProductModel model)
         {
-            Product product = new Product()
+            try
             {
-                Name = model.Name,
-                Price = model.Price
-            };
-            productModuleservice.Add(product);
-
-            ServiceResponse<Product> response = new ServiceResponse<Product>
+                var fileUploadResult = "";
+                if (model.file.Length > 0)
+                {
+                    fileUploadResult = await FileUpload(model);
+                }
+                Product product = new Product()
+                {
+                    Name = model.Name,
+                    Price = model.Price
+                };
+                productModuleservice.Add(product);
+                productModuleservice.Save();
+                ServiceResponse<Product> response = new ServiceResponse<Product>
+                {
+                    Entity = product,
+                    IsSuccessfull = true
+                };
+                return Ok(new { count = 1, path = fileUploadResult, response });
+            }
+            catch (Exception)
             {
-                Entity = product,
-                IsSuccessfull = true
-            };
-            return Ok(response);
+                return StatusCode(500);
+            }
+           
         }
+
+        private async Task<string> FileUpload(ProductModel model)
+        {
+            if (!Directory.Exists(_webHostEnvironment + "\\uploads\\"))
+            {
+                Directory.CreateDirectory(_webHostEnvironment + "\\uploads\\");
+            }
+            using (FileStream fileStream = System.IO.File.Create(_webHostEnvironment + "\\uploads\\" + model.file.FileName))
+            {
+                await model.file.CopyToAsync(fileStream);
+                fileStream.Flush();
+                return _webHostEnvironment + "\\uploads\\" + model.file.FileName;
+
+            }
+        }
+
         [HttpPut]
         public IActionResult Put(int id, [FromBody] ProductModel model)
         {

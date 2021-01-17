@@ -34,6 +34,11 @@ namespace DigitArc.ProductModule.Business.Logic
            return  _productRepository.GetById(Id);
         }
 
+        public void Save()
+        {
+            _productRepository.Save();
+        }
+
         public void Update(Product product)
         {
             _productRepository.Update(product);

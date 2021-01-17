@@ -13,5 +13,6 @@ namespace DigitArc.ProductModule.Business.Logic
         void Update(Product product);
 
         void Delete(Product product);
+        void Save();
     }
 }

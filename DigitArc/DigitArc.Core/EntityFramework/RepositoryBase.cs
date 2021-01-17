@@ -18,7 +18,6 @@ namespace DigitArc.Core.EntityFramework
         public void Add(Tentity entity)
         {
             context.Set<Tentity>().Add(entity);
-            Save();
         }
 
         public void Delete(Tentity entity)

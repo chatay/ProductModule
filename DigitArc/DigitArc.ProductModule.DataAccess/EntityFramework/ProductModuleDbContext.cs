@@ -15,7 +15,6 @@ namespace DigitArc.ProductModule.DataAccess.EntityFramework
         }
 
         public DbSet<Product> Products { get; set; }
-        public DbSet<Image> Images { get; set; }
     }
     public class AppDbFactory : IDesignTimeDbContextFactory<ProductModuleDbContext>
     {
