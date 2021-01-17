@@ -52,6 +52,8 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
         [HttpPut]
         public IActionResult Put(int id, [FromBody] ProductModel model)
         {
+            if (id == null) return BadRequest();
+
             ServiceResponse<Product> response = new ServiceResponse<Product>();
 
             var product = productModuleservice.GetById(id);
