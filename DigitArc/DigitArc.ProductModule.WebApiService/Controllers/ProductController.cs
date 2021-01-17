@@ -53,10 +53,6 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
         public IActionResult Put(int id, [FromBody] ProductModel model)
         {
             ServiceResponse<Product> response = new ServiceResponse<Product>();
-            bool isNull = model.GetType().GetProperties()
-                            .All(p => p.GetValue(model) != null);
-
-            if (isNull) return BadRequest();
 
             var product = productModuleservice.GetById(id);
 
@@ -64,10 +60,27 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
             {
                 response.IsSuccessfull = false;
                 response.Errors.Add("product not found");
+                return NotFound(response);
             }
 
             product.Name = model.Name;
             product.Price = model.Price;
+            response.IsSuccessfull = true;
+
+            return Ok(response);
+        }
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            if (id == null) return BadRequest();
+
+            ServiceResponse<Product> response = new ServiceResponse<Product>();
+
+            var product = productModuleservice.GetById(id);
+
+            if (product == null) return NotFound();
+
+            productModuleservice.Delete(product);
             response.IsSuccessfull = true;
 
             return Ok(response);
