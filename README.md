@@ -31,7 +31,7 @@ inprocess ve outof process kullanarak Kestrel server kullanılacağını, statik
 * fluentvalidation eklerdim. Data Annotationlar kullanımı güzel fakat bazen tek sorumluluk kurallarını bozuyorlar.
 * automapper kullanarak model entity ler ile viewmodel entity ler arasında entegrasyon sağlardım.
 
-- Eklemek istediğiniz bir yorumunuz var mı?
+## Eklemek istediğiniz bir yorumunuz var mı?
 * Geliştirmeleri 3 tane branch e yaydım. Ardından development ve master ile merge ledim.
 * insertionDate ve UpdatedDate tabloya eklemeyi unuttum, normalde eksik etmem.
 * string to decimal convertini yapmadım, price alanını string olarak oluşturdum.
