@@ -55,7 +55,7 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
                 productModuleservice.Add(product);
                 productModuleservice.Save();
 
-                
+
                 ServiceResponse<Product> response = new ServiceResponse<Product>
                 {
                     Entity = product,
@@ -67,20 +67,6 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
             catch (Exception)
             {
                 return StatusCode(500);
-            }
-        }
-
-        private async Task<string> FileUpload(ProductModel model)
-        {
-            if (!Directory.Exists(_webHostEnvironment + "\\uploads\\"))
-            {
-                Directory.CreateDirectory(_webHostEnvironment + "\\uploads\\");
-            }
-            using (FileStream fileStream = System.IO.File.Create(_webHostEnvironment + "\\uploads\\" + model.file.FileName))
-            {
-                await model.file.CopyToAsync(fileStream);
-                fileStream.Flush();
-                return _webHostEnvironment.ContentRootPath + "\\uploads\\" + model.file.FileName;
             }
         }
 
@@ -109,18 +95,57 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            if (id == null) return BadRequest();
+            try
+            {
+                if (id == null) return BadRequest();
 
-            ServiceResponse<Product> response = new ServiceResponse<Product>();
+                ServiceResponse<Product> response = new ServiceResponse<Product>();
 
-            var product = productModuleservice.GetById(id);
+                var product = productModuleservice.GetById(id);
 
-            if (product == null) return NotFound();
+                if (product == null) return NotFound();
 
-            productModuleservice.Delete(product);
-            response.IsSuccessfull = true;
+                int result =  DeleteImageFile(product.ImagePath, product);
 
-            return Ok(response);
+                if (result == Constants.SUCCESS) productModuleservice.Delete(product);
+                else response.IsSuccessfull = false;
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
+        }
+        private async Task<string> FileUpload(ProductModel model)
+        {
+            if (!Directory.Exists(_webHostEnvironment + "\\uploads\\"))
+            {
+                Directory.CreateDirectory(_webHostEnvironment + "\\uploads\\");
+            }
+            using (FileStream fileStream = System.IO.File.Create(_webHostEnvironment + "\\uploads\\" + model.file.FileName))
+            {
+                await model.file.CopyToAsync(fileStream);
+                fileStream.Flush();
+                return _webHostEnvironment.ContentRootPath + "\\" + _webHostEnvironment + "\\uploads\\" + model.file.FileName;
+            }
+        }
+
+        private int DeleteImageFile(string filePath, Product product)
+        {
+            var imagePath = product.ImagePath;
+
+            var webRoot = _webHostEnvironment.ToString();
+            var file = System.IO.Path.Combine(webRoot,imagePath);
+
+            if (System.IO.File.Exists(imagePath))
+            {
+                System.IO.File.Delete(filePath);
+
+                return Constants.SUCCESS;
+            }
+            return Constants.FAIL;
+
         }
     }
 }
