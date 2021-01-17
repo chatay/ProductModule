@@ -2,6 +2,7 @@
 1. Projeyi indirdikten sonra `DigitArc.ProductModule.DataAccess\appsettings.json` dosya yolundan veritabanı ayarlarınızı yapınız. 
 2. DigitArc.ProductModule.DataAccess Package Manager Console'u açıp `dotnet ef migrations add firstMigration` komutunu çalıştırın.
 3. Sonrasında ise `dotnet ef database update` komutunu çalıştırarak veritabanınızı oluşturmuş olacaksınız.
+4. **Swagger** 📝 ile test edebilirsiniz. Örn:  `localhost:(port)/swagger`  
 
 ## **Projede kullanıdığınız tasarım desenleri hangileridir? Bu desenleri neden kullandınız?**
 
@@ -30,4 +31,4 @@ inprocess ve outof process kullanarak Kestrel server kullanılacağını, statik
 * automapper kullanarak model entity ler ile viewmodel entity ler arasında entegrasyon sağlardım.
 
 - Eklemek istediğiniz bir yorumunuz var mı?
-Yok.
+Geliştirmeleri 3 tane branch e yaydım. Ardından development ve master ile merge ledim.
