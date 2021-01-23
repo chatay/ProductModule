@@ -57,10 +57,10 @@ namespace DigitArc.ProductModule.WebApiService
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.Use(async (context, next) => {
-                context.Request.EnableBuffering();
-                await next();
-            });
+            //app.Use(async (context, next) => {
+            //    context.Request.EnableBuffering();
+            //    await next();
+            //});
             //app.UseRequestResponseLogging();
             app.UseMiddleware<RequestResponseLoggingMiddleware>();
 

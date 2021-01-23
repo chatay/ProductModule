@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http.Internal;
 using DigitArc.ProductModule.Entities;
+using ConsoleApp1;
 
 namespace DigitArc.ProductModule.Business.MessageHandler
 {
@@ -34,6 +35,7 @@ namespace DigitArc.ProductModule.Business.MessageHandler
 
         private async Task LogRequest(HttpContext context)
         {
+            BufferingHelper.EnableRewind(context.Request, 2000, 2000);
             await using var requestStream = _recyclableMemoryStreamManager.GetStream();
             await context.Request.Body.CopyToAsync(requestStream);
             _logger.LogInformation($"Http Request Information:{Environment.NewLine}" +

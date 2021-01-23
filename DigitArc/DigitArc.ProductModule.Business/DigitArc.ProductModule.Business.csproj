@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DigitArc.ProductModule.DataAccess\DigitArc.ProductModule.DataAccess.csproj" />
+    <ProjectReference Include="..\DigitArc.ProductModule.EnableRewind\DigitArc.ProductModule.EnableRewind.csproj" />
     <ProjectReference Include="..\DigitArc.ProductModule.Entities\DigitArc.ProductModule.Entities.csproj" />
   </ItemGroup>
 
