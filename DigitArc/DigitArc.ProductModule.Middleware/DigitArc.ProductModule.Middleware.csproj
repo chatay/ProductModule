@@ -8,4 +8,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DigitArc.ProductModule.Business\DigitArc.ProductModule.Business.csproj" />
+  </ItemGroup>
+
 </Project>

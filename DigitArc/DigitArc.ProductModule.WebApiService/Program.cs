@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 
 namespace DigitArc.ProductModule.WebApiService
 {
@@ -15,6 +17,18 @@ namespace DigitArc.ProductModule.WebApiService
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                });
+                })
+            .ConfigureLogging(logging =>
+            {
+                // clear default logging providers
+                logging.ClearProviders();
+
+                // add built-in providers manually, as needed 
+                logging.AddConsole();
+                logging.AddDebug();
+                logging.AddEventLog();
+                logging.AddEventSourceLogger();
+                logging.SetMinimumLevel(LogLevel.Trace);
+            });
     }
 }
