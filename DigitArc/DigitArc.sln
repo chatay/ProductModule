@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitArc.Core", "DigitArc.Core\DigitArc.Core.csproj", "{3E38E64F-1823-402B-A5BF-2DC15549EFBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitArc.Core", "DigitArc.Core\DigitArc.Core.csproj", "{3E38E64F-1823-402B-A5BF-2DC15549EFBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitArc.ProductModule.Entities", "DigitArc.ProductModule.Entities\DigitArc.ProductModule.Entities.csproj", "{EEE642FB-4F3C-493E-A661-35F98E5E85CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitArc.ProductModule.Entities", "DigitArc.ProductModule.Entities\DigitArc.ProductModule.Entities.csproj", "{EEE642FB-4F3C-493E-A661-35F98E5E85CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitArc.ProductModule.DataAccess", "DigitArc.ProductModule.DataAccess\DigitArc.ProductModule.DataAccess.csproj", "{6D73A2BD-8365-4531-84F5-D75AD2B10F5F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitArc.ProductModule.DataAccess", "DigitArc.ProductModule.DataAccess\DigitArc.ProductModule.DataAccess.csproj", "{6D73A2BD-8365-4531-84F5-D75AD2B10F5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitArc.ProductModule.Business", "DigitArc.ProductModule.Business\DigitArc.ProductModule.Business.csproj", "{8F5F4170-9274-435F-A09E-F5A25D9F38A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitArc.ProductModule.Business", "DigitArc.ProductModule.Business\DigitArc.ProductModule.Business.csproj", "{8F5F4170-9274-435F-A09E-F5A25D9F38A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitArc.ProductModule.WebApiService", "DigitArc.ProductModule.WebApiService\DigitArc.ProductModule.WebApiService.csproj", "{E6A4ACCB-FC5D-4F72-B6C3-3BC6C14EC202}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitArc.ProductModule.WebApiService", "DigitArc.ProductModule.WebApiService\DigitArc.ProductModule.WebApiService.csproj", "{E6A4ACCB-FC5D-4F72-B6C3-3BC6C14EC202}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
