@@ -1,37 +1,24 @@
-## **Projenin Kurulumu**
-1. Projeyi indirdikten sonra `DigitArc.ProductModule.DataAccess\appsettings.json` ve  `DigitArc.ProductModule.WebApiService\appsettings.json` dosya yolundan veritabanı ayarlarınızı yapınız. 
-2. Eğer ef migrations tanımlı değilse, DigitArc.ProductModule.DataAccess Package Manager Console  açıp `dotnet tool install --global dotnet-ef` komutunu çalıştırın.
-3. Yine DigitArc.ProductModule.DataAccess Package Manager Console'unda `dotnet ef migrations add firstMigration` komutunu çalıştırın.
-4. Sonrasında ise `dotnet ef database update` komutunu çalıştırarak veritabanınızı oluşturmuş olacaksınız.
-5. **Swagger** 📝 ile test edebilirsiniz. Örn:  `localhost:(port)/swagger`  
+## **Which pattern have you use and why?**
 
-## **Projede kullanıdığınız tasarım desenleri hangileridir? Bu desenleri neden kullandınız?**
+I implemented **repository pattern**  as a design pattern. The reason is that we do not have to modify the data access logic or business access login so no need to change the repository logic.
 
-Repository pattern kullandım. İleride eklenecek tablolar ve class için tekrar tekrar kod yazımı yerine, bir tane class üzerine generic olarak yapıp diğer
-class'lara aynı operasyonların sağlanması. 
+## Some experience with the techology and libraries
 
-## Kullandığınız teknoloji ve kütüphaneler hakkında daha önce tecrübeniz oldu mu? Tek tek yazabilir misiniz?
+I had no previously experience with **SQLite** as it is so easy to set up however I had some config issues and it made me lose time.
 
-1. Net Core
-2. Mssql
-3. Codefirst
+I had experience in **.net core** version of 3.0. I like using it as it provides many features. Such as async is a great way to make queries and not wasting time on db calls or logging cases. Attempted to use async to get TransactionId from database.
 
-**.Net Core:** .net core ile tecrübem, daha öncesinde kullandığımız wcf servislerini .net core taşıma aşamasında oldu. .Net core yavaş yavaş firmada etkinlik kazanmaya başladı.
-.Net core ile middleware yapısını, bir diğer deyişle Configure alt yapısını kullanarak request'lerin ilk orada düzenlenebileceğini,
-inprocess ve outof process kullanarak Kestrel server kullanılacağını, statik dosyaların kullanımı için middleware useStaticFiles() gibi eklemelerinin yapılması gerektiğini öğrendim.
+I added screenshot of insertion of transaction, sorry to not be able to push it as there were some errors to handle.
 
-**.Mssql:** .mssql ile 3 senedir tecrübem var. Transaction tablosu yönetimi, index, trigger, join, store proc gibi tecrübelerim oldu.
+Automapper is a way to map classes where it leads to segregated models. In the project, it makes no sense to return database model transaction, so generated a transactionPoco class to return a more clear class to the client.
 
-**.Codefirst:** bu zamana kadar projelerimizde databasefirst çoğunlukla kullandığımız halde, code first tecrübemde oldu.
+## What would you like to add if you have had more time?
 
-## Daha geniş vaktiniz olsaydı projeye neler eklemek isterdiniz?
+* **Middleware** enables use to modify the request as it before reaches to the core project. 
+* **Identity library** to be able to use authorization
+* **fluentvalidation** as it provides good structured data annotions.
+* **logger** is a core function for a project to handle issues. I had intention to use Nlog as it provides **ElasticSearch** support.
 
-* Daha doğru ve düzenli bir şekilde test edebilmek adına swagger eklerdim.
-* Identity kütüphanesi ile authorization yapısı
-* fluentvalidation eklerdim. Data Annotationlar kullanımı güzel fakat bazen tek sorumluluk kurallarını bozuyorlar.
-* automapper kullanarak model entity ler ile viewmodel entity ler arasında entegrasyon sağlardım.
-
-## Eklemek istediğiniz bir yorumunuz var mı?
-* Geliştirmeleri 3 tane branch e yaydım. Ardından development ve master ile merge ledim.
-* insertionDate ve UpdatedDate tabloya eklemeyi unuttum, normalde eksik etmem.
-* string to decimal convertini yapmadım, price alanını string olarak oluşturdum.
+## Anything more to add?
+* I would have normally used decimal but did not want to waste time on converting.
+* I focused more on designing the api architecture because once the architecture is correctly designed, it is really easy to fetch data from database. That is the reason I could not accomplish all the methods you asked me to do 
