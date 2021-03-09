@@ -21,4 +21,4 @@ Automapper is a way to map classes where it leads to segregated models. In the p
 
 ## Anything more to add?
 * I would have normally used decimal but did not want to waste time on converting.
-* I focused more on designing the api architecture because once the architecture is correctly designed, it is really easy to fetch data from database. That is the reason I could not accomplish all the methods you asked me to do 
+* I focused more on **designing the api architecture** because once the architecture is correctly designed, it is really easy to fetch data from database. That is the reason I could not accomplish all the methods you asked me to do 
