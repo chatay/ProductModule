@@ -37,4 +37,8 @@
     <ProjectReference Include="..\DigitArc.ProductModule.Entities\DigitArc.ProductModule.Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

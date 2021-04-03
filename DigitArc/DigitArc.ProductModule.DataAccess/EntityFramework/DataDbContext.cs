@@ -7,18 +7,19 @@ using System.IO;
 
 namespace DigitArc.ProductModule.DataAccess.EntityFramework
 {
-    public class ProductModuleDbContext : DbContext
+    public class DataDbContext : DbContext
     {
        
-        public ProductModuleDbContext(DbContextOptions<ProductModuleDbContext> options) : base(options)
+        public DataDbContext(DbContextOptions<DataDbContext> options) : base(options)
         {
         }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<User> Users { get; set; }
     }
-    public class AppDbFactory : IDesignTimeDbContextFactory<ProductModuleDbContext>
+    public class AppDbFactory : IDesignTimeDbContextFactory<DataDbContext>
     {
-        public ProductModuleDbContext CreateDbContext(string[] args)
+        public DataDbContext CreateDbContext(string[] args)
         {
 
             IConfiguration config = new ConfigurationBuilder()
@@ -27,10 +28,10 @@ namespace DigitArc.ProductModule.DataAccess.EntityFramework
                   .Build();
 
             // Get connection string
-            var optionsBuilder = new DbContextOptionsBuilder<ProductModuleDbContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<DataDbContext>();
             var connectionString = config.GetConnectionString("DefaultConnection");
             optionsBuilder.UseSqlServer(connectionString, b => b.MigrationsAssembly("DigitArc.ProductModule.DataAccess"));
-            return new ProductModuleDbContext(optionsBuilder.Options);
+            return new DataDbContext(optionsBuilder.Options);
         }
     }
 
