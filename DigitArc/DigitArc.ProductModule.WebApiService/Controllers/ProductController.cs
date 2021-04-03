@@ -1,7 +1,10 @@
-﻿using DigitArc.ProductModule.Business.Logic;
+﻿using DigitArc.Core.Attributes;
+using DigitArc.ProductModule.Business.Logic;
 using DigitArc.ProductModule.Entities.Models;
 using DigitArc.ProductModule.WebApiService.Models;
 using DigitArc.ProductModule.WebApiService.RequestModels;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +16,7 @@ using System.Threading.Tasks;
 
 namespace DigitArc.ProductModule.WebApiService.Controllers
 {
+    [CustomAuthorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase

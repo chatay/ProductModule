@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DigitArc.Core\DigitArc.Core.csproj" />
     <ProjectReference Include="..\DigitArc.ProductModule.DataAccess\DigitArc.ProductModule.DataAccess.csproj" />
     <ProjectReference Include="..\DigitArc.ProductModule.Entities\DigitArc.ProductModule.Entities.csproj" />
   </ItemGroup>
