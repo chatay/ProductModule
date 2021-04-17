@@ -6,6 +6,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DigitArc.Core\DigitArc.Core.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.IO.RecyclableMemoryStream" Version="1.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DigitArc.ProductModule.DataAccess\DigitArc.ProductModule.DataAccess.csproj" />
     <ProjectReference Include="..\DigitArc.ProductModule.Entities\DigitArc.ProductModule.Entities.csproj" />
   </ItemGroup>

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,10 +24,12 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
     {
         private readonly IProductModuleservice productModuleservice;
         private readonly IWebHostEnvironment _webHostEnvironment;
-        public ProductController(IProductModuleservice productModuleservice, IWebHostEnvironment _webHostEnvironment)
+        private readonly ILogger _logger;
+        public ProductController(IProductModuleservice productModuleservice, IWebHostEnvironment _webHostEnvironment, ILogger _logger)
         {
             this.productModuleservice = productModuleservice;
             this._webHostEnvironment = _webHostEnvironment;
+            this._logger = _logger;
         }
         [HttpGet]
         public IActionResult Get()
@@ -42,23 +45,27 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromForm] ProductModel model)
         {
+            Product product = new Product();
             try
             {
                 var fileUploadResult = "";
-                if (model.file.Length > 0)
+                if (ModelState.IsValid)
                 {
-                    fileUploadResult = await FileUpload(model);
+                    if (model.file != null)
+                    {
+                        fileUploadResult = await FileUpload(model);
+                    }
+                    product = new Product()
+                    {
+                        Name = model.Name,
+                        Price = model.Price,
+                        ImagePath = fileUploadResult
+                    };
+
+                    productModuleservice.Add(product);
+                    productModuleservice.Save();
+
                 }
-                Product product = new Product()
-                {
-                    Name = model.Name,
-                    Price = model.Price,
-                    ImagePath = fileUploadResult
-                };
-
-                productModuleservice.Add(product);
-                productModuleservice.Save();
-
 
                 ServiceResponse<Product> response = new ServiceResponse<Product>
                 {
@@ -67,6 +74,8 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
                 };
 
                 return Ok(new { count = 1, path = fileUploadResult, response });
+
+
             }
             catch (Exception)
             {
@@ -111,7 +120,7 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
             {
                 return StatusCode(500);
             }
-            
+
         }
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
@@ -126,7 +135,7 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
 
                 if (product == null) return NotFound();
 
-                int result =  DeleteImageFile(product.ImagePath, product);
+                int result = DeleteImageFile(product.ImagePath, product);
 
                 if (result == Constants.SUCCESS)
                 {
@@ -161,7 +170,7 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
             var imagePath = product.ImagePath;
 
             var webRoot = _webHostEnvironment.ToString();
-            var file = System.IO.Path.Combine(webRoot,imagePath);
+            var file = System.IO.Path.Combine(webRoot, imagePath);
 
             if (System.IO.File.Exists(imagePath))
             {

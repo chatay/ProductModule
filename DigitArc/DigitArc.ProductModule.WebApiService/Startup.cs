@@ -3,6 +3,7 @@ using DigitArc.Core.Helpers;
 using DigitArc.ProductModule.Business.AbstractAuthentication;
 using DigitArc.ProductModule.Business.Authentication;
 using DigitArc.ProductModule.Business.Logic;
+using DigitArc.ProductModule.Business.MessageHandler;
 using DigitArc.ProductModule.DataAccess.DatabaseLogic;
 using DigitArc.ProductModule.DataAccess.EntityFramework;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -22,6 +23,11 @@ using System;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
+using static DigitArc.ProductModule.Business.MessageHandler.RequestResponseLoggingMiddleware;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using DigitArc.ProductModule.WebApiService.Controllers;
 
 namespace DigitArc.ProductModule.WebApiService
 {
@@ -50,8 +56,13 @@ namespace DigitArc.ProductModule.WebApiService
             services.AddTransient<IProductModuleservice, ProductModuleManager>();
             services.AddTransient<IProductRepository, ProductDal>();
             services.AddScoped<IUserService, UserService>();
-            
+            services.AddSingleton<ILogger>(svc => svc.GetRequiredService<ILogger<ProductController>>());
+            services.AddLogging(builder => builder.SetMinimumLevel(LogLevel.Trace));
 
+            services.Configure<IISServerOptions>(options =>
+            {
+                options.AllowSynchronousIO = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,6 +76,12 @@ namespace DigitArc.ProductModule.WebApiService
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.Use(async (context, next) => {
+                context.Request.EnableBuffering();
+                await next();
+            });
+            //app.UseRequestResponseLogging();
+            app.UseMiddleware<RequestResponseLoggingMiddleware>();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {

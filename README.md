@@ -22,3 +22,9 @@ Automapper is a way to map classes where it leads to segregated models. In the p
 ## Anything more to add?
 * I would have normally used decimal but did not want to waste time on converting.
 * I focused more on **designing the api architecture** because once the architecture is correctly designed, it is really easy to fetch data from database. That is the reason I could not accomplish all the methods you asked me to do 
+## **Projenin Kurulumu**
+1. Projeyi indirdikten sonra `DigitArc.ProductModule.DataAccess\appsettings.json` ve  `DigitArc.ProductModule.WebApiService\appsettings.json` dosya yolundan veritabanı ayarlarınızı yapınız. 
+2. Eğer ef migrations tanımlı değilse, DigitArc.ProductModule.DataAccess Package Manager Console  açıp `dotnet tool install --global dotnet-ef` komutunu çalıştırın.
+3. Yine DigitArc.ProductModule.DataAccess Package Manager Console'unda `dotnet ef migrations add firstMigration` komutunu çalıştırın.
+4. Sonrasında ise `dotnet ef database update` komutunu çalıştırarak veritabanınızı oluşturmuş olacaksınız.
+5. **Swagger** 📝 ile test edebilirsiniz. Örn:  `localhost:(port)/swagger`  
