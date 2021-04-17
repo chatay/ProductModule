@@ -7,9 +7,9 @@ using System.Text;
 
 namespace DigitArc.ProductModule.DataAccess.EntityFramework
 {
-    public class ProductDal: RepositoryBase<Product, ProductModuleDbContext>, IProductRepository
+    public class ProductDal: RepositoryBase<Product, DataDbContext>, IProductRepository
     {
-        public ProductDal(ProductModuleDbContext context) : base(context)
+        public ProductDal(DataDbContext context) : base(context)
         {
 
         }
