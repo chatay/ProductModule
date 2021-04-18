@@ -27,7 +27,10 @@ using System.Diagnostics;
 using static DigitArc.ProductModule.Business.MessageHandler.RequestResponseLoggingMiddleware;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using FluentValidation;
 using DigitArc.ProductModule.WebApiService.Controllers;
+using FluentValidation.AspNetCore;
+using DigitArc.Core.AutoMapper;
 
 namespace DigitArc.ProductModule.WebApiService
 {
@@ -51,7 +54,12 @@ namespace DigitArc.ProductModule.WebApiService
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
             services.AddControllers();
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddMvc()
+                .AddFluentValidation(fv =>
+                {
+                    fv.RegisterValidatorsFromAssemblyContaining<Startup>();
+                });
+            services.AddAutoMapper(typeof(AutoMapperProfile));
             services.AddDbContext<DataDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IProductModuleservice, ProductModuleManager>();
             services.AddTransient<IProductRepository, ProductDal>();

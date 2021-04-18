@@ -1,8 +1,13 @@
-﻿using DigitArc.Core.Attributes;
+﻿using AutoMapper;
+using DigitArc.Core.Aspects.PostSharp.Validation.FluentValidation;
+using DigitArc.Core.Attributes;
+using DigitArc.Core.CrossCuttingConcerns.Validation.FluenValidation;
 using DigitArc.ProductModule.Business.Logic;
+using DigitArc.ProductModule.Business.ValidationRules.FluentValidation;
 using DigitArc.ProductModule.Entities.Models;
 using DigitArc.ProductModule.WebApiService.Models;
 using DigitArc.ProductModule.WebApiService.RequestModels;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
@@ -24,12 +29,12 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
     {
         private readonly IProductModuleservice productModuleservice;
         private readonly IWebHostEnvironment _webHostEnvironment;
-        private readonly ILogger _logger;
-        public ProductController(IProductModuleservice productModuleservice, IWebHostEnvironment _webHostEnvironment, ILogger _logger)
+        private readonly IMapper _mapper;
+        public ProductController(IProductModuleservice productModuleservice, IWebHostEnvironment _webHostEnvironment, IMapper _mapper)
         {
             this.productModuleservice = productModuleservice;
             this._webHostEnvironment = _webHostEnvironment;
-            this._logger = _logger;
+            this._mapper = _mapper;
         }
         [HttpGet]
         public IActionResult Get()
@@ -61,8 +66,9 @@ namespace DigitArc.ProductModule.WebApiService.Controllers
                         Price = model.Price,
                         ImagePath = fileUploadResult
                     };
+                    var productMapped = _mapper.Map<Product>(model);
 
-                    productModuleservice.Add(product);
+                    productModuleservice.Add(productMapped);
                     productModuleservice.Save();
 
                 }

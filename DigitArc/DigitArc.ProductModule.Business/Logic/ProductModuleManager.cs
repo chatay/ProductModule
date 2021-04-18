@@ -1,4 +1,6 @@
-﻿using DigitArc.ProductModule.DataAccess.DatabaseLogic;
+﻿using DigitArc.Core.Aspects.PostSharp.Validation.FluentValidation;
+using DigitArc.ProductModule.Business.ValidationRules.FluentValidation;
+using DigitArc.ProductModule.DataAccess.DatabaseLogic;
 using DigitArc.ProductModule.Entities.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,7 @@ namespace DigitArc.ProductModule.Business.Logic
             _productRepository = productRepository;
         }
 
+        [FluentValidationAspect(typeof(ProductValidator))]
         public void Add(Product product)
         {
             _productRepository.Add(product);

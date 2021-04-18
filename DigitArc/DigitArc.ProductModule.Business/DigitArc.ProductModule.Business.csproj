@@ -6,8 +6,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DigitArc.Core\DigitArc.Core.csproj" />
+    <PackageReference Include="FluentValidation" Version="10.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.IO.RecyclableMemoryStream" Version="1.4.0" />
+    <PackageReference Include="PostSharp" Version="6.9.4" />
   </ItemGroup>
 
   <ItemGroup>
